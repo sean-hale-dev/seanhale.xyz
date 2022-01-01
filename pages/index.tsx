@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import { CodePortfolioCard, ContentArea, SVGIcon } from '../components';
 
 const Home: NextPage = () => {
   return (
@@ -13,36 +14,61 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-		  <section id="hero" className="h-screen flex flex-col justify-between">
-			  <section className="flex flex-col items-center justify-center space-y-2 mt-64 mx-4 mx-4">
-				  <h1 className="text-5xl">Sean Hale</h1>
-				  <div className="w-3/4 md:w-1/2 h-1 bg-gradient-to-r from-pink-500 via-yellow-300 to-purple-600" />
-				  <section className="flex flex-row justify-center items-stretch space-x-4">
-				  <Link href="https://git.deers.io/west">GitLab</Link>
-				  <Link href="https://github.com/sean-hale-dev">GitHub</Link>
-				  <Link href="https://www.linkedin.com/in/sean-h-39a99412a/">LinkedIn</Link>
-				  <Link href="https://git.deers.io/west/resume/-/raw/main/resume.pdf">Resume</Link>
-				  <Link href="/">Photo Portfolio</Link>
-				  </section>
+        <section id="hero" className="h-screen flex flex-col justify-between">
+          <section className="flex flex-col items-center justify-center space-y-2 mt-64 mx-4 mx-4">
+            <h1 className="text-5xl">Sean Hale</h1>
+            <div className="w-3/4 md:w-1/2 h-1 bg-gradient-to-r from-pink-500 via-yellow-300 to-purple-600 rounded-lg" />
+            <section className="flex flex-row justify-center items-stretch space-x-4">
+              <Link href="https://git.deers.io/west">GitLab</Link>
+              <Link href="https://github.com/sean-hale-dev">GitHub</Link>
+              <Link href="https://www.linkedin.com/in/sean-h-39a99412a/">LinkedIn</Link>
+              <Link href="https://git.deers.io/west/resume/-/raw/main/resume.pdf">Resume</Link>
+              <Link href="/">Photo Portfolio</Link>
+            </section>
 
-				  <div className="">
-					  <a href="#code-portfolio">
-						  <button className="m-4 p-2 rounded">Code Portfolio</button>
-					  </a>
-				  </div>
-			  </section>
+            <a href="#code-portfolio">
+              <button className="m-4 p-2 rounded border-2 border-gray-900 rounded-lg">Code Portfolio</button>
+            </a>
+          </section>
 
-			  <div className={styles.spacer} id={styles['hero-spacer']} />
-		  </section>
+          <div className={styles.spacer} id={styles['hero-spacer']} />
+        </section>
 
-		  <section id="Proficiencies" className="bg-purple-600 h-screen">
-			  <h2 className="text-3xl lg:text-5xl text-white">Proficiencies</h2>
-		  </section>
+        <ContentArea title="About Me" backgroundColor="bg-purple-600" transitionID="bio-spacer" >
+		  <div className="mt-4 flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between text-center lg:text-left px-8 lg:px-32 lg:space-x-48">
+		  	<img className="max-h-80" src="/bio.jpg" alt='Portrait of Sean Hale' />
+		    <p className='text-white max-w-32 block'>
+		    {
+			  `I'm a senior Computer Science and ITWS dual major at Rensselaer Polytechnic Institute (RPI).
+				  I started my coding career in 2013 with the Minecraft mod ComputerCraft. Learning to automate various elements of the game with Lua, I quickly made the jump to Java to start making my own Minecraft mods.
+				  Once I'd had my fill of Java and Forge I moved to Python to start to automate solving my homework while in highschool. In 2018 I started developing websites and fullstack applications both as a freelancer as well as
+				  during an internship with DHA Group Inc in Washington DC. In 2019 I started my degrees at RPI where I began to toy with machine learning algorithms and implemented an instance of Google's AlphaZero algorithm for Connect4.
+				  These days I develop fullstack applications both for myself as well as clients, and have started to branch out into app development both with the React Native framework as well as with Apple's SwiftUI.`
+		    }
+            </p>
+		  </div>
+        </ContentArea>
 
-		  <section id="code-portfolio" className="bg-pink-500 h-screen">
-			  <h2 className="text-3xl lg:text-5xl text-white">Code Portfolio</h2>
-		  </section>
+        <ContentArea backgroundColor="bg-pink-500" title="Proficiencies" transitionID="prof-spacer">
+          <div className="px-8 lg:px-32 py-8 space-x-2 lg:space-x-16 flex flex-row flex-wrap justify-around">
+            {
+              ['cpp', 'css', 'docker', 'git', 'golang', 'graphql', 'html', 'java', 'javascript', 'laravel', 'latex', 'mongodb', 'neovim', 'nodejs', 'php', 'postgresql', 'python', 'react', 'rust', 'typescript'].map((element, idx) => (
+                <SVGIcon uri={`/skill_icons/${element}.svg`} height={100} label={element} key={idx} />
+              ))
+            }
+          </div>
+        </ContentArea>
 
+        <ContentArea id="code-portfolio" backgroundColor="bg-yellow-500" title="Code Portfolio">
+          <div className='flex flew-row flex-wrap justify-around pb-16 mt-4 px-8'>
+            <CodePortfolioCard title="DeltaPhi" desc="Public facing site for the DeltaPhi fratenity" imgURI="/portfolio/deltaphi.png" uri="https://deltaphirpi.com" />
+            <CodePortfolioCard title="AlphaZero Connect4" desc="Implementation of Google's AlphaZero deep learning algorithm for Connect4" imgURI="/portfolio/chef.png" uri="https://git.deers.io/rpi/mindsAndMachines/chef" />
+            <CodePortfolioCard title="NLP Twitter Bot" desc="Telegram bot which subscribes to twitter accounts and notifies users after performing NLP classification on the body of the tweet" imgURI="/portfolio/commission_bot.png" uri="https://git.deers.io/west/commissionwatchbot"/>
+            <CodePortfolioCard title="Telegram Payment Bot" desc="Telegram bot which allows users to generate invoices and collect payment via the Stripe Payment API" imgURI="/portfolio/payment_bot.png" uri="https://git.deers.io/west/payment-bot" />
+            <CodePortfolioCard title="Resume Organizer" desc="System for collecting, parsing, analyzing and filtering for resumes in an organization" imgURI="/portfolio/resume_org.png" uri="https://github.com/sean-hale-dev/resume-org/" />
+            <CodePortfolioCard title="Webhook Proxy" desc="Proxy server for generating and registering many different webhooks behind one common domain" imgURI="/portfolio/webhook_provider.png" uri="https://git.deers.io/west/webhook-provider" />
+          </div>
+        </ContentArea>
       </main>
     </>
   );

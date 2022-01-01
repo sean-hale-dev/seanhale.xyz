@@ -4,8 +4,29 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	margin: 0;
+	padding: 0;
+}
+
+.small-spacer {
+	aspect-ratio: 900/75;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+
 }
 
 #hero-spacer {
 	background-image: url('/hero_spacer.svg');
+}
+
+#bio-spacer {
+	background-image: url('/bio_spacer.svg');
+}
+
+#prof-spacer {
+	background-image: url('/prof_spacer.svg');
 }
