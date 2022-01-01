@@ -3,7 +3,7 @@ import ContentArea from './content_area';
 import SVGIcon from './svg_icon';
 
 export {
-	CodePortfolioCard,
-	ContentArea,
-	SVGIcon,
+  CodePortfolioCard,
+  ContentArea,
+  SVGIcon,
 };
