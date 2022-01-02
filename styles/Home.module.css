@@ -2,8 +2,9 @@
 	aspect-ratio: 900/150;
 	width: 100%;
 	background-repeat: no-repeat;
+	box-sizing: border-box;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	margin: 0;
 	padding: 0;
 }
@@ -12,11 +13,11 @@
 	aspect-ratio: 900/75;
 	width: 100%;
 	background-repeat: no-repeat;
+	box-sizing: border-box;
 	background-position: center;
 	background-size: cover;
 	margin: 0;
 	padding: 0;
-
 }
 
 #hero-spacer {

@@ -34,7 +34,7 @@ const Home: NextPage = () => {
           <div className={styles.spacer} id={styles['hero-spacer']} />
         </section>
 
-        <ContentArea title="About Me" backgroundColor="bg-purple-600" transitionID="bio-spacer" >
+        <ContentArea title="About Me" backgroundColor="bg-purple-600" transitionColor="bg-pink-500" transitionID="bio-spacer" >
 		  <div className="mt-4 flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between text-center lg:text-left px-8 lg:px-32 lg:space-x-48">
 		  	<img className="max-h-80" src="/bio.jpg" alt='Portrait of Sean Hale' />
 		    <p className='text-white max-w-32 block'>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 		  </div>
         </ContentArea>
 
-        <ContentArea backgroundColor="bg-pink-500" title="Proficiencies" transitionID="prof-spacer">
+        <ContentArea backgroundColor="bg-pink-500" title="Proficiencies" transitionColor="bg-yellow-500" transitionID="prof-spacer">
           <div className="px-8 lg:px-32 py-8 space-x-2 lg:space-x-16 flex flex-row flex-wrap justify-around">
             {
               ['cpp', 'css', 'docker', 'git', 'golang', 'graphql', 'html', 'java', 'javascript', 'laravel', 'latex', 'mongodb', 'neovim', 'nodejs', 'php', 'postgresql', 'python', 'react', 'rust', 'typescript'].map((element, idx) => (
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </div>
         </ContentArea>
 
-        <ContentArea id="code-portfolio" backgroundColor="bg-yellow-500" title="Code Portfolio">
+        <ContentArea id="code-portfolio" backgroundColor="bg-yellow-500" transitionColor='bg-yellow-500' title="Code Portfolio">
           <div className='flex flew-row flex-wrap justify-around pb-16 mt-4 px-8'>
             <CodePortfolioCard title="DeltaPhi" desc="Public facing site for the DeltaPhi fratenity" imgURI="/portfolio/deltaphi.png" uri="https://deltaphirpi.com" />
             <CodePortfolioCard title="AlphaZero Connect4" desc="Implementation of Google's AlphaZero deep learning algorithm for Connect4" imgURI="/portfolio/chef.png" uri="https://git.deers.io/rpi/mindsAndMachines/chef" />
