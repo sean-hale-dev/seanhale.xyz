@@ -4,7 +4,16 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { CodePortfolioCard, ContentArea, SVGIcon } from '../components';
 
+import ViewpointImg from '../public/portfolio/viewpoint.png';
+import ChefImg from '../public/portfolio/chef.png';
+import CommissionBotImg from '../public/portfolio/commission_bot.png';
+import PaymentBotImg from '../public/portfolio/payment_bot.png';
+import ResumeOrgImg from '../public/portfolio/resume_org.png';
+import WebhookProviderImg from '../public/portfolio/webhook_provider.png';
+
 const Home: NextPage = () => {
+  const skills = ['cpp', 'css', 'docker', 'git', 'golang', 'graphql', 'html', 'java', 'javascript', 'laravel', 'latex', 'mongodb', 'neovim', 'nodejs', 'php', 'postgresql', 'python', 'react', 'rust', 'typescript'];
+
   return (
     <>
       <Head>
@@ -52,7 +61,7 @@ const Home: NextPage = () => {
         <ContentArea backgroundColor="bg-pink-500" title="Proficiencies" transitionColor="bg-yellow-500" transitionID="prof-spacer">
           <div className="px-8 lg:px-32 py-8 space-x-2 lg:space-x-16 flex flex-row flex-wrap justify-around">
             {
-              ['cpp', 'css', 'docker', 'git', 'golang', 'graphql', 'html', 'java', 'javascript', 'laravel', 'latex', 'mongodb', 'neovim', 'nodejs', 'php', 'postgresql', 'python', 'react', 'rust', 'typescript'].map((element, idx) => (
+              skills.map((element, idx) => (
                 <SVGIcon uri={`/skill_icons/${element}.svg`} height={100} label={element} key={idx} />
               ))
             }
@@ -61,12 +70,12 @@ const Home: NextPage = () => {
 
         <ContentArea id="code-portfolio" backgroundColor="bg-yellow-500" transitionColor='bg-yellow-500' title="Code Portfolio">
           <div className='flex flew-row flex-wrap justify-around pb-16 mt-4 px-8'>
-            <CodePortfolioCard title="DeltaPhi" desc="Public facing site for the DeltaPhi fratenity" imgURI="/portfolio/deltaphi.png" uri="https://deltaphirpi.com" />
-            <CodePortfolioCard title="AlphaZero Connect4" desc="Implementation of Google's AlphaZero deep learning algorithm for Connect4" imgURI="/portfolio/chef.png" uri="https://git.deers.io/rpi/mindsAndMachines/chef" />
-            <CodePortfolioCard title="NLP Twitter Bot" desc="Telegram bot which subscribes to twitter accounts and notifies users after performing NLP classification on the body of the tweet" imgURI="/portfolio/commission_bot.png" uri="https://git.deers.io/west/commissionwatchbot"/>
-            <CodePortfolioCard title="Telegram Payment Bot" desc="Telegram bot which allows users to generate invoices and collect payment via the Stripe Payment API" imgURI="/portfolio/payment_bot.png" uri="https://git.deers.io/west/payment-bot" />
-            <CodePortfolioCard title="Resume Organizer" desc="System for collecting, parsing, analyzing and filtering for resumes in an organization" imgURI="/portfolio/resume_org.png" uri="https://github.com/sean-hale-dev/resume-org/" />
-            <CodePortfolioCard title="Webhook Proxy" desc="Proxy server for generating and registering many different webhooks behind one common domain" imgURI="/portfolio/webhook_provider.png" uri="https://git.deers.io/west/webhook-provider" />
+            <CodePortfolioCard title="ViewPoint" desc="Framework for storing and tracking commissioned artwork" img={ViewpointImg} uri="https://github.com/sean-hale-dev/view-point" />
+            <CodePortfolioCard title="AlphaZero Connect4" desc="Implementation of Google's AlphaZero deep learning algorithm for Connect4" img={ChefImg} uri="https://git.deers.io/rpi/mindsAndMachines/chef" />
+            <CodePortfolioCard title="NLP Twitter Bot" desc="Telegram bot which subscribes to twitter accounts and notifies users after performing NLP classification on the body of the tweet" img={CommissionBotImg} uri="https://git.deers.io/west/commissionwatchbot"/>
+            <CodePortfolioCard title="Telegram Payment Bot" desc="Telegram bot which allows users to generate invoices and collect payment via the Stripe Payment API" img={PaymentBotImg} uri="https://git.deers.io/west/payment-bot" />
+            <CodePortfolioCard title="Resume Organizer" desc="System for collecting, parsing, analyzing and filtering for resumes in an organization" img={ResumeOrgImg} uri="https://github.com/sean-hale-dev/resume-org/" />
+            <CodePortfolioCard title="Webhook Proxy" desc="Proxy server for generating and registering many different webhooks behind one common domain" img={WebhookProviderImg} uri="https://git.deers.io/west/webhook-provider" />
           </div>
         </ContentArea>
       </main>
